@@ -324,7 +324,19 @@
         ;
 
         // Renderizamos usando la variable local, saltándonos el bloqueo del navegador
-        vegaEmbed('#vis-grafico-tecnicos', miGrafico, { "actions": false }).catch(console.error);
+       vegaEmbed('#vis-grafico-tecnicos', miGrafico, { "actions": false })
+            .then(function(result) {
+                // Accedemos al elemento que Vega acaba de crear y lo centramos por completo
+                const vegaWrapper = document.querySelector('.vega-embed');
+                if (vegaWrapper) {
+                    vegaWrapper.style.display = 'flex';
+                    vegaWrapper.style.justifyContent = 'center';
+                    vegaWrapper.style.alignItems = 'center';
+                    vegaWrapper.style.margin = '0 auto';
+                    vegaWrapper.style.width = '100%';
+                }
+            })
+            .catch(console.error);
     </script>
 
 </body>
