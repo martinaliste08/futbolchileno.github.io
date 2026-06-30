@@ -73,14 +73,6 @@
             line-height: 1.2;
         }
 
-        #sbsr-1475 .cs-text {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: #e0e0e0;
-            text-align: justify;
-        }
-
         #reviews-306 {
             position: relative;
             background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), 
@@ -106,7 +98,6 @@
         }
 
         #reviews-306 .cs-image {
-            flex: 1.5;
             max-width: 700px;
             width: 100%;
             display: block;
@@ -120,20 +111,6 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
             object-fit: cover;
             display: block;
-        }
-
-        #reviews-306 .cs-content {
-            flex: 1;
-            max-width: 450px;
-        }
-
-        #reviews-306 .cs-review {
-            font-size: 1.4rem;
-            line-height: 1.8;
-            color: #ffffff;
-            font-weight: 700;
-            text-shadow: 2px 2px 12px rgba(0, 0, 0, 1);
-            text-align: left;
         }
 
         #stability-section {
@@ -186,15 +163,6 @@
             line-height: 1.2;
         }
 
-        #stability-section .cs-text {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: #e0e0e0;
-            text-align: justify;
-        }
-
-        /* Sección del gráfico de técnicos clonando el formato de impacto visual */
         #tech-chart-section {
             position: relative;
             background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), 
@@ -212,9 +180,9 @@
             max-width: 800px;
             width: 100%;
             margin: 0 auto;
-            background-color: rgba(13, 17, 23, 0.85); /* Fondo oscuro semitransparente para que destaque el gráfico */
+            background-color: rgba(13, 17, 23, 0.85);
             padding: 30px;
-            border: 4px solid #39ff14; /* Borde verde eléctrico idéntico al de Pato */
+            border: 4px solid #39ff14;
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
             display: flex;
@@ -239,11 +207,6 @@
             #reviews-306 .cs-image {
                 max-width: 100%;
             }
-
-            #reviews-306 .cs-review {
-                font-size: 1.2rem;
-                text-align: center;
-            }
         }
     </style>
 </head>
@@ -260,13 +223,7 @@
             </div>
             <div class="cs-content">
                 <h2 class="cs-title">El gran desequilibrio económico</h2>
-                <p class="cs-text">
-                    Desde el año 2018, el fútbol chileno comenzó una nueva etapa tras el cambio de formato del campeonato nacional, pasando de torneos semestrales a una competencia anual. Este cambio permitió observar de forma más clara la evolución económica y deportiva de los clubes a lo largo de las temporadas. En ese contexto, el valor de mercado de los planteles aparece como una forma de aproximarse a la capacidad económica de cada institución.
-                </p>
-                <p class="cs-text">
-                    Colo Colo, Universidad de Chile y Universidad Católica, año tras año figuran como los equipos con mayor potencial económico, algo que se demuestra en el valor de sus planillas cada temporada. Mientras otros clubes intentan competir con menos recursos y proyectos deportivos más inestables, los “tres grandes” concentran gran parte del valor de mercado del campeonato chileno. El siguiente análisis de las últimas siete temporadas del fútbol nacional (2019-2025) demuestran que, si bien el dinero influye, no siempre es lo más importante.
-                </p>
-            </div>
+                </div>
         </div>
     </section>
 
@@ -277,11 +234,6 @@
                 <source media="(min-width: 601px)" srcset="imagenes/grafico_pato.jpg">
                 <img aria-hidden="true" loading="lazy" decoding="async" src="imagenes/grafico_pato.jpg" alt="Gráfico Pato" width="842" height="548">
             </picture>
-            <div class="cs-content">
-                <p class="cs-review">
-                    Colo Colo, Universidad de Chile y Universidad Católica son los equipos que más dinero han invertido en las últimas temporadas.
-                </p>
-            </div>
         </div>
     </section>
 
@@ -296,10 +248,7 @@
             </div>
             <div class="cs-content">
                 <h2 class="cs-title">la importancia de la estabilidad</h2>
-                <p class="cs-text">
-                    El gráfico anterior muestra la evolución del valor de mercado de los clubes de Primera División entre 2019 y 2026. A lo largo de los años, los tres grandes del fútbol chileno lideran gran parte del período, consolidando una diferencia económica importante frente al resto de los equipos. Sin embargo, los datos también permiten observar que la inversión económica no siempre se traduce directamente en resultados deportivos.
-                </p>
-            </div>
+                </div>
         </div>
     </section>
 
@@ -310,8 +259,8 @@
     </section>
 
     <script>
-        // Inyecta el JSON dinámico generado desde Colab
-        vegaEmbed('#vis-grafico-tecnicos', 'cambios_tecnicos_2025.json').catch(console.error);
+        // Carga de la visualización interactiva desde tu archivo JSON
+        vegaEmbed('#vis-grafico-tecnicos', 'visualizacion_martin.json').catch(console.error);
     </script>
 
 </body>
