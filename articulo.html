@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportaje: El Gran Desequilibrio Económico</title>
+    <title>Reportaje: Fútbol Chileno</title>
     
+    <!-- Librerías de Vega necesarias para renderizar gráficos interactivos de Altair -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -81,9 +82,10 @@
             text-align: justify;
         }
 
-        /* Bloques con fondo Parallax y formato de Dos Columnas Estáticos */
-        #reviews-306, #transfer-chart-block {
+        #reviews-306 {
             position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), 
+                              url('imagenes/cancha_futbol.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -91,17 +93,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        #reviews-306 {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), 
-                              url('imagenes/cancha_futbol.jpg');
-        }
-
-        /* Coquimbo Campeón bien oscuro (75%) para legibilidad excelente */
-        #transfer-chart-block {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-                              url('imagenes/coq_campeon.jpg');
         }
 
         .reviews-container {
@@ -115,14 +106,14 @@
             margin: 0 auto;
         }
 
-        .cs-image-static {
+        #reviews-306 .cs-image {
             flex: 1.5;
             max-width: 700px;
             width: 100%;
             display: block;
         }
 
-        .cs-image-static img {
+        #reviews-306 .cs-image img {
             width: 100%;
             height: auto;
             border: 4px solid #39ff14;
@@ -132,21 +123,21 @@
             display: block;
         }
 
-        .cs-content-side {
+        #reviews-306 .cs-content {
             flex: 1;
             max-width: 450px;
         }
 
-        .cs-review-text {
+        #reviews-306 .cs-review {
             font-size: 1.4rem;
             line-height: 1.8;
             color: #ffffff;
             font-weight: 700;
-            text-shadow: 2px 2px 14px rgba(0, 0, 0, 1);
+            text-shadow: 2px 2px 12px rgba(0, 0, 0, 1);
             text-align: left;
         }
 
-        /* Sección del gráfico interactivo central con fondo de estadio */
+        /* Sección del gráfico con fondo de estadio */
         #tech-chart-section {
             position: relative;
             background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), 
@@ -174,7 +165,7 @@
 
         #vis-grafico-tecnicos {
             width: 100%;
-            min-height: 450px;
+            min-height: 400px;
             display: block;
             margin: 0 auto;
         }
@@ -256,11 +247,11 @@
                 font-size: 2rem;
             }
 
-            .cs-image-static {
+            #reviews-306 .cs-image {
                 max-width: 100%;
             }
 
-            .cs-review-text {
+            #reviews-306 .cs-review {
                 font-size: 1.2rem;
                 text-align: center;
             }
@@ -278,6 +269,7 @@
 </head>
 <body>
 
+    <!-- Bloque 1: El gran desequilibrio económico (Mantenido intacto) -->
     <section class="section-standard">
         <div class="cs-container">
             <div class="cs-image-group">
@@ -299,21 +291,23 @@
         </div>
     </section>
 
+    <!-- Bloque 2: Gráfico Pato -->
     <section id="reviews-306">
         <div class="reviews-container">
-            <picture class="cs-image-static">
+            <picture class="cs-image">
                 <source media="(max-width: 600px)" srcset="imagenes/grafico_pato.jpg">
                 <source media="(min-width: 601px)" srcset="imagenes/grafico_pato.jpg">
                 <img aria-hidden="true" loading="lazy" decoding="async" src="imagenes/grafico_pato.jpg" alt="Gráfico Pato" width="842" height="548">
             </picture>
-            <div class="cs-content-side">
-                <p class="cs-review-text">
+            <div class="cs-content">
+                <p class="cs-review">
                     Colo Colo, Universidad de Chile y Universidad Católica son los equipos que más dinero han invertido en las últimas temporadas.
                 </p>
             </div>
         </div>
     </section>
 
+    <!-- Bloque 3: La importancia de la estabilidad -->
     <section class="section-standard">
         <div class="cs-container">
             <div class="cs-image-group">
@@ -332,25 +326,32 @@
         </div>
     </section>
 
+    <!-- Bloque 4: Visualización interactiva -->
     <section id="tech-chart-section">
         <div class="tech-chart-container">
             <div id="vis-grafico-tecnicos"></div>
         </div>
     </section>
 
+    <!-- Bloque 5: Sección con los 3 recuadros -->
     <section id="cards-section">
         <p class="cards-intro-text">
             Aunque los clubes con planteles más valorizados suelen mantenerse en posiciones competitivas, esto no garantiza automáticamente títulos o campaigns exitosas. Algunos equipos con menor valor de mercado lograron competir en puestos altos e incluso clasificar a torneos internacionales, poniendo en duda la idea de que el dinero sea el único factor determinante del rendimiento.
         </p>
         
         <div class="cards-grid">
+            <!-- Recuadro 1 -->
             <div class="info-card">
                 <h3 class="card-title">72% de los equipos que terminaron en los tres puestos mantuvieron a un sólo DT durante el año.</h3>
             </div>
+
+            <!-- Recuadro 2 -->
             <div class="info-card">
                 <h3 class="card-title">85.7% de probabilidades de terminar en la mitad inferior de la tabla</h3>
                 <p class="card-body">Si un equipo tiene 3 o más técnicos en una temporada.</p>
             </div>
+
+            <!-- Recuadro 3 -->
             <div class="info-card">
                 <h3 class="card-title">Sexto vs undécimo puesto</h3>
                 <p class="card-body">Los equipos que no cambiaron de técnico durante la temporada terminaron en la sexta posición del torneo, mientras que los equipos que cambiaron una o dos veces de DT, o sea, tuvieron dos o tres técnicos durante el año, en promedio finalizaron en la posición número 11.</p>
@@ -358,27 +359,7 @@
         </div>
     </section>
 
-    <section class="section-standard" style="padding-top: 20px;">
-        <div class="cs-container">
-            <div class="cs-image-group">
-                <picture class="cs-picture">
-                    <source media="(max-width: 600px)" srcset="imagenes/cc_coq.jpg">
-                    <source media="(min-width: 601px)" srcset="imagenes/cc_coq.jpg">
-                    <img loading="lazy" decoding="async" src="imagenes/cc_coq.jpg" alt="Colo Colo vs Coquimbo" width="542" height="720" aria-hidden="true">
-                </picture>
-            </div>
-            <div class="cs-content">
-                <h2 class="cs-title">La impredecible temporada 2025</h2>
-                <p class="cs-text">
-                    La temporada 2025 del fútbol nacional comenzó con altas expectativas. El año anterior, Colo Colo se había coronado campeón tras un desenlace de infarto ante Universidad de Chile; un torneo emocionante donde los dos clubes más grandes del país se prepararon con todo para disputar la Copa Libertadores 2025. Los albos, además, contaban con el incentivo de celebrar su centenario: los 100 años de la institución impulsaron potentes contrataciones a inicio de año en busca de la gloria. Un poco más atrás aparecían la U y la UC, ambas con refuerzos importantes, pero que parecían quedar a la sombra tras el agresivo mercado de fichajes realizado por el Cacique.
-                </p>
-                <p class="cs-text">
-                    Por otra parte, Everton prometía dar de qué hablar. Respaldados por el Grupo Pachuca, los viñamarinos sumaron numerosas incorporaciones, varias de ellas provenientes de una alianza con Peñarol, uno de los gigantes uruguayos. En el otro extremo, los recién ascendidos, Deportes La Serena y Deportes Limache, reestructuraron profundamente sus planteles con el objetivo de mantener la categoría, registrando múltiples altas y bajas para competir de buena forma en Primera División.
-                </p>
-            </div>
-        </div>
-    </section>
-
+    <!-- Bloque 6: ACTUALIZADO - Desenlace inesperado de Coquimbo Unido -->
     <section class="section-standard" style="padding-top: 20px;">
         <div class="cs-container">
             <div class="cs-image-group">
@@ -389,7 +370,7 @@
                 </picture>
             </div>
             <div class="cs-content">
-                <h2 class="cs-title">Sin embargo, la temporada 2025 terminó con un desenlace inesperado: un sorprendente Coquimbo Unido se coronó campeón</h2>
+                <h2 class="cs-title">Sin embargo, la temporada 2025 terminó con un desenlace inesperado: Coquimbo Unido se coronó campeón</h2>
                 <p class="cs-text">
                     En contraste, Colo Colo (uno de los equipos que más se movió en el mercado) firmó un año pésimo, culminando octavo en la clasificación y quedando fuera de las competencias internacionales para el próximo período. Everton, otra de las grandes promesas del torneo, se convirtió en una de las decepciones del año al salvarse del descenso apenas en la última fecha.
                 </p>
@@ -400,26 +381,26 @@
         </div>
     </section>
 
-    <section id="transfer-chart-block">
-        <div class="reviews-container">
-            <picture class="cs-image-static">
-                <source media="(max-width: 600px)" srcset="imagenes/visualization.jpg">
-                <source media="(min-width: 601px)" srcset="imagenes/visualization.jpg">
-                <img aria-hidden="true" loading="lazy" decoding="async" src="imagenes/visualization.jpg" alt="Visualización Transferencias 2022" width="842" height="548">
-            </picture>
-            <div class="cs-content-side">
-                <p class="cs-review-text">
-                    De esta manera, el torneo dejó una lección clara: 7 de los 9 clubes que sumaron más de 20 incorporaciones durante el año terminaron de la octava posición hacia abajo, demostrando que salir a fichar en masa no siempre garantiza los mejores resultados.
-                </p>
-            </div>
-        </div>
-    </section>
-
     <script>
-       
-       const miGrafico = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar", "color": "#39ff14", "opacity": 0.8}, "encoding": {"tooltip": [{"field": "Equipo", "type": "nominal"}, {"field": "Cambios de t\u00e9cnico", "title": "Cambios de t\u00e9cnico", "type": "quantitative"}, {"field": "Posici\u00f3n final torneo", "type": "quantitative"}], "x": {"axis": {"format": "d", "tickMinStep": 1, "values": [0, 1, 2, 3]}, "field": "Ancho_Barra", "title": "Cantidad de cambios de director t\u00e9cnico", "type": "quantitative"}, "y": {"field": "Posici\u00f3n final torneo", "sort": "ascending", "title": "Posici\u00f3n Final en el Torneo (Mejor a Peor)", "type": "ordinal"}}, "title": "Temporada 2025: Relaci\u00f3n entre cambios de DT y posici\u00f3n final"}, {"mark": {"type": "text", "align": "left", "dx": 6, "font": "Segoe UI", "fontSize": 11}, "encoding": {"text": {"field": "Etiqueta", "type": "nominal"}, "tooltip": [{"field": "Equipo", "type": "nominal"}, {"field": "Cambios de t\u00e9cnico", "title": "Cambios de t\u00e9cnico", "type": "quantitative"}, {"field": "Posici\u00f3n final torneo", "type": "quantitative"}], "x": {"axis": {"format": "d", "tickMinStep": 1, "values": [0, 1, 2, 3]}, "field": "Ancho_Barra", "title": "Cantidad de cambios de director t\u00e9cnico", "type": "quantitative"}, "y": {"field": "Posici\u00f3n final torneo", "sort": "ascending", "title": "Posici\u00f3n Final en el Torneo (Mejor a Peor)", "type": "ordinal"}}, "title": "Temporada 2025: Relaci\u00f3n entre cambios de DT y posici\u00f3n final"}], "data": {"name": "data-7a396210bc1654223f0dbfcaa96ab00c"}, "height": 500, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-7a396210bc1654223f0dbfcaa96ab00c": [{"Temporada": 2025, "Equipo": "Universidad de Chile", "T\u00e9cnico 1": "Gustavo \u00c1lvarez", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 4, "Ancho_Barra": 0.08, "Etiqueta": "Universidad de Chile (4\u00b0)"}, {"Temporada": 2025, "Equipo": "CD Universidad Cat\u00f3lica", "T\u00e9cnico 1": "Tiago Nunes", "T\u00e9cnico 2": "Rodrigo Valenzuela", "T\u00e9cnico 3": "Daniel Grnero", "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 3, "Cambios de t\u00e9cnico": 2, "Posici\u00f3n final torneo": 2, "Ancho_Barra": 2.0, "Etiqueta": "CD Universidad Cat\u00f3lica (2\u00b0)"}, {"Temporada": 2025, "Equipo": "CSD Colo-Colo", "T\u00e9cnico 1": "Jorge Almir\u00f3n", "T\u00e9cnico 2": "Fernando Ortiz", "T\u00e9cnico 3": "Hugo Gonz\u00e1lez", "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 3, "Cambios de t\u00e9cnico": 2, "Posici\u00f3n final torneo": 8, "Ancho_Barra": 2.0, "Etiqueta": "CSD Colo-Colo (8\u00b0)"}, {"Temporada": 2025, "Equipo": "CD O'Higgins", "T\u00e9cnico 1": "Francisco Meneghini", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 3, "Ancho_Barra": 0.08, "Etiqueta": "CD O'Higgins (3\u00b0)"}, {"Temporada": 2025, "Equipo": "Uni\u00f3n Espa\u00f1ola", "T\u00e9cnico 1": "Jos\u00e9 Luis Sierra", "T\u00e9cnico 2": "Miguel Ram\u00edrez", "T\u00e9cnico 3": "Gonzalo Villagra", "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 3, "Cambios de t\u00e9cnico": 2, "Posici\u00f3n final torneo": 16, "Ancho_Barra": 2.0, "Etiqueta": "Uni\u00f3n Espa\u00f1ola (16\u00b0)"}, {"Temporada": 2025, "Equipo": "Coquimbo Unido", "T\u00e9cnico 1": "Esteban Gonz\u00e1lez", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 1, "Ancho_Barra": 0.08, "Etiqueta": "Coquimbo Unido (1\u00b0)"}, {"Temporada": 2025, "Equipo": "Audax Italiano", "T\u00e9cnico 1": "Gustavo Lema", "T\u00e9cnico 2": "Juan Jos\u00e9 Ribera", "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 2, "Cambios de t\u00e9cnico": 1, "Posici\u00f3n final torneo": 5, "Ancho_Barra": 1.0, "Etiqueta": "Audax Italiano (5\u00b0)"}, {"Temporada": 2025, "Equipo": "CD Palestino", "T\u00e9cnico 1": "Lucas Bovaglio", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 6, "Ancho_Barra": 0.08, "Etiqueta": "CD Palestino (6\u00b0)"}, {"Temporada": 2025, "Equipo": "CD Everton", "T\u00e9cnico 1": "Mauricio Larriera", "T\u00e9cnico 2": "Javier Torrente ", "T\u00e9cnico 3": "Gustavo Leal", "T\u00e9cnico 4": "Gustavo Dalasso", "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 4, "Cambios de t\u00e9cnico": 3, "Posici\u00f3n final torneo": 14, "Ancho_Barra": 3.0, "Etiqueta": "CD Everton (14\u00b0)"}, {"Temporada": 2025, "Equipo": "Deportes La Serena", "T\u00e9cnico 1": "Cristian Paulucci", "T\u00e9cnico 2": "Erwin Dur\u00e1n", "T\u00e9cnico 3": "Francisco Boz\u00e1n", "T\u00e9cnico 4": "Mario Sciacqua", "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 4, "Cambios de t\u00e9cnico": 3, "Posici\u00f3n final torneo": 13, "Ancho_Barra": 3.0, "Etiqueta": "Deportes La Serena (13\u00b0)"}, {"Temporada": 2025, "Equipo": "CD Huachipato", "T\u00e9cnico 1": "Jaime Garc\u00eda", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 9, "Ancho_Barra": 0.08, "Etiqueta": "CD Huachipato (9\u00b0)"}, {"Temporada": 2025, "Equipo": "Deportes Limache", "T\u00e9cnico 1": "V\u00edctor Rivero", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 11, "Ancho_Barra": 0.08, "Etiqueta": "Deportes Limache (11\u00b0)"}, {"Temporada": 2025, "Equipo": "CD \u00d1ublense", "T\u00e9cnico 1": "Alejandro Gaete", "T\u00e9cnico 2": "Ronald Fuentes", "T\u00e9cnico 3": "Francisco Arru\u00e9", "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 3, "Cambios de t\u00e9cnico": 2, "Posici\u00f3n final torneo": 10, "Ancho_Barra": 2.0, "Etiqueta": "CD \u00d1ublense (10\u00b0)"}, {"Temporada": 2025, "Equipo": "Uni\u00f3n La Calera", "T\u00e9cnico 1": "Walter Lemma", "T\u00e9cnico 2": "Mart\u00edn Cicotello", "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 2, "Cambios de t\u00e9cnico": 1, "Posici\u00f3n final torneo": 12, "Ancho_Barra": 1.0, "Etiqueta": "Uni\u00f3n La Calera (12\u00b0)"}, {"Temporada": 2025, "Equipo": "CD Cobresal", "T\u00e9cnico 1": "Gustavo Huerta", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 7, "Ancho_Barra": 0.08, "Etiqueta": "CD Cobresal (7\u00b0)"}, {"Temporada": 2025, "Equipo": "Deportes Iquique", "T\u00e9cnico 1": "Miguel Ram\u00edrez", "T\u00e9cnico 2": "Fernando D\u00edaz", "T\u00e9cnico 3": "Rodrigo Guerrero", "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 3, "Cambios de t\u00e9cnico": 2, "Posici\u00f3n final torneo": 15, "Ancho_Barra": 2.0, "Etiqueta": "Deportes Iquique (15\u00b0)"}]}}
+        // Recuerda mantener aquí pegados todos tus datos del JSON
+        const miGrafico = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar", "color": "#39ff14", "opacity": 0.8}, "encoding": {"tooltip": [{"field": "Equipo", "type": "nominal"}, {"field": "Cambios de t\u00e9cnico", "title": "Cambios de t\u00e9cnico", "type": "quantitative"}, {"field": "Posici\u00f3n final torneo", "type": "quantitative"}], "x": {"axis": {"format": "d", "tickMinStep": 1, "values": [0, 1, 2, 3]}, "field": "Ancho_Barra", "title": "Cantidad de cambios de director t\u00e9cnico", "type": "quantitative"}, "y": {"field": "Posici\u00f3n final torneo", "sort": "ascending", "title": "Posici\u00f3n Final en el Torneo (Mejor a Peor)", "type": "ordinal"}}, "title": "Temporada 2025: Relaci\u00f3n entre cambios de DT y posici\u00f3n final"}, {"mark": {"type": "text", "align": "left", "dx": 6, "font": "Segoe UI", "fontSize": 11}, "encoding": {"text": {"field": "Etiqueta", "type": "nominal"}, "tooltip": [{"field": "Equipo", "type": "nominal"}, {"field": "Cambios de t\u00e9cnico", "title": "Cambios de t\u00e9cnico", "type": "quantitative"}, {"field": "Posici\u00f3n final torneo", "type": "quantitative"}], "x": {"axis": {"format": "d", "tickMinStep": 1, "values": [0, 1, 2, 3]}, "field": "Ancho_Barra", "title": "Cantidad de cambios de director t\u00e9cnico", "type": "quantitative"}, "y": {"field": "Posici\u00f3n final torneo", "sort": "ascending", "title": "Posici\u00f3n Final en el Torneo (Mejor a Peor)", "type": "ordinal"}}, "title": "Temporada 2025: Relaci\u00f3n entre cambios de DT y posici\u00f3n final"}], "data": {"name": "data-7a396210bc1654223f0dbfcaa96ab00c"}, "height": 500, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-7a396210bc1654223f0dbfcaa96ab00c": [{"Temporada": 2025, "Equipo": "Universidad de Chile", "T\u00e9cnico 1": "Gustavo \u00c1lvarez", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 4, "Ancho_Barra": 0.08, "Etiqueta": "Universidad de Chile (4\u00b0)"}, {"Temporada": 2025, "Equipo": "CD Universidad Cat\u00f3lica", "T\u00e9cnico 1": "Tiago Nunes", "T\u00e9cnico 2": "Rodrigo Valenzuela", "T\u00e9cnico 3": "Daniel Grnero", "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 3, "Cambios de t\u00e9cnico": 2, "Posici\u00f3n final torneo": 2, "Ancho_Barra": 2.0, "Etiqueta": "CD Universidad Cat\u00f3lica (2\u00b0)"}, {"Temporada": 2025, "Equipo": "CSD Colo-Colo", "T\u00e9cnico 1": "Jorge Almir\u00f3n", "T\u00e9cnico 2": "Fernando Ortiz", "T\u00e9cnico 3": "Hugo Gonz\u00e1lez", "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 3, "Cambios de t\u00e9cnico": 2, "Posici\u00f3n final torneo": 8, "Ancho_Barra": 2.0, "Etiqueta": "CSD Colo-Colo (8\u00b0)"}, {"Temporada": 2025, "Equipo": "CD O'Higgins", "T\u00e9cnico 1": "Francisco Meneghini", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 3, "Ancho_Barra": 0.08, "Etiqueta": "CD O'Higgins (3\u00b0)"}, {"Temporada": 2025, "Equipo": "Uni\u00f3n Espa\u00f1ola", "T\u00e9cnico 1": "Jos\u00e9 Luis Sierra", "T\u00e9cnico 2": "Miguel Ram\u00edrez", "T\u00e9cnico 3": "Gonzalo Villagra", "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 3, "Cambios de t\u00e9cnico": 2, "Posici\u00f3n final torneo": 16, "Ancho_Barra": 2.0, "Etiqueta": "Uni\u00f3n Espa\u00f1ola (16\u00b0)"}, {"Temporada": 2025, "Equipo": "Coquimbo Unido", "T\u00e9cnico 1": "Esteban Gonz\u00e1lez", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 1, "Ancho_Barra": 0.08, "Etiqueta": "Coquimbo Unido (1\u00b0)"}, {"Temporada": 2025, "Equipo": "Audax Italiano", "T\u00e9cnico 1": "Gustavo Lema", "T\u00e9cnico 2": "Juan Jos\u00e9 Ribera", "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 2, "Cambios de t\u00e9cnico": 1, "Posici\u00f3n final torneo": 5, "Ancho_Barra": 1.0, "Etiqueta": "Audax Italiano (5\u00b0)"}, {"Temporada": 2025, "Equipo": "CD Palestino", "T\u00e9cnico 1": "Lucas Bovaglio", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 6, "Ancho_Barra": 0.08, "Etiqueta": "CD Palestino (6\u00b0)"}, {"Temporada": 2025, "Equipo": "CD Everton", "T\u00e9cnico 1": "Mauricio Larriera", "T\u00e9cnico 2": "Javier Torrente ", "T\u00e9cnico 3": "Gustavo Leal", "T\u00e9cnico 4": "Gustavo Dalasso", "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 4, "Cambios de t\u00e9cnico": 3, "Posici\u00f3n final torneo": 14, "Ancho_Barra": 3.0, "Etiqueta": "CD Everton (14\u00b0)"}, {"Temporada": 2025, "Equipo": "Deportes La Serena", "T\u00e9cnico 1": "Cristian Paulucci", "T\u00e9cnico 2": "Erwin Dur\u00e1n", "T\u00e9cnico 3": "Francisco Boz\u00e1n", "T\u00e9cnico 4": "Mario Sciacqua", "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 4, "Cambios de t\u00e9cnico": 3, "Posici\u00f3n final torneo": 13, "Ancho_Barra": 3.0, "Etiqueta": "Deportes La Serena (13\u00b0)"}, {"Temporada": 2025, "Equipo": "CD Huachipato", "T\u00e9cnico 1": "Jaime Garc\u00eda", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 9, "Ancho_Barra": 0.08, "Etiqueta": "CD Huachipato (9\u00b0)"}, {"Temporada": 2025, "Equipo": "Deportes Limache", "T\u00e9cnico 1": "V\u00edctor Rivero", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 11, "Ancho_Barra": 0.08, "Etiqueta": "Deportes Limache (11\u00b0)"}, {"Temporada": 2025, "Equipo": "CD \u00d1ublense", "T\u00e9cnico 1": "Alejandro Gaete", "T\u00e9cnico 2": "Ronald Fuentes", "T\u00e9cnico 3": "Francisco Arru\u00e9", "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 3, "Cambios de t\u00e9cnico": 2, "Posici\u00f3n final torneo": 10, "Ancho_Barra": 2.0, "Etiqueta": "CD \u00d1ublense (10\u00b0)"}, {"Temporada": 2025, "Equipo": "Uni\u00f3n La Calera", "T\u00e9cnico 1": "Walter Lemma", "T\u00e9cnico 2": "Mart\u00edn Cicotello", "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 2, "Cambios de t\u00e9cnico": 1, "Posici\u00f3n final torneo": 12, "Ancho_Barra": 1.0, "Etiqueta": "Uni\u00f3n La Calera (12\u00b0)"}, {"Temporada": 2025, "Equipo": "CD Cobresal", "T\u00e9cnico 1": "Gustavo Huerta", "T\u00e9cnico 2": null, "T\u00e9cnico 3": null, "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 1, "Cambios de t\u00e9cnico": 0, "Posici\u00f3n final torneo": 7, "Ancho_Barra": 0.08, "Etiqueta": "CD Cobresal (7\u00b0)"}, {"Temporada": 2025, "Equipo": "Deportes Iquique", "T\u00e9cnico 1": "Miguel Ram\u00edrez", "T\u00e9cnico 2": "Fernando D\u00edaz", "T\u00e9cnico 3": "Rodrigo Guerrero", "T\u00e9cnico 4": null, "T\u00e9cnico 5": NaN, "Cantidad de t\u00e9cnicos": 3, "Cambios de t\u00e9cnico": 2, "Posici\u00f3n final torneo": 15, "Ancho_Barra": 2.0, "Etiqueta": "Deportes Iquique (15\u00b0)"}]}}
+        
+        // ¡PEGA TU JSON AQUÍ ADENTRO!
+        
+        ;
 
-        vegaEmbed('#vis-grafico-tecnicos', miGraficoTecnicos, { "actions": false, "width": "container" }).catch(console.error);
+        vegaEmbed('#vis-grafico-tecnicos', miGrafico, { "actions": false })
+            .then(function(result) {
+                const vegaWrapper = document.querySelector('.vega-embed');
+                if (vegaWrapper) {
+                    vegaWrapper.style.display = 'flex';
+                    vegaWrapper.style.justifyContent = 'center';
+                    vegaWrapper.style.alignItems = 'center';
+                    vegaWrapper.style.margin = '0 auto';
+                    vegaWrapper.style.width = '100%';
+                }
+            })
+            .catch(console.error);
     </script>
 
 </body>
