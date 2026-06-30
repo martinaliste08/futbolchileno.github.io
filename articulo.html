@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El gran desequilibrio económico</title>
     
-    <!-- Librerías de Vega necesarias para renderizar gráficos interactivos de Altair -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -195,7 +194,7 @@
             text-align: justify;
         }
 
-        /* Formato de impacto visual centrado con fondo de estadio */
+        /* Sección del gráfico de técnicos con el fondo del Estadio UC */
         #tech-chart-section {
             position: relative;
             background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), 
@@ -210,24 +209,23 @@
         }
 
         .tech-chart-container {
-            max-width: 800px;
+            max-width: 950px;
             width: 100%;
             margin: 0 auto;
-            background-color: rgba(13, 17, 23, 0.85); 
+            background-color: rgba(13, 17, 23, 0.90); 
             padding: 30px;
             border: 4px solid #39ff14; 
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow-x: auto;
+            overflow-x: auto; /* Permite scroll si el gráfico es muy ancho */
         }
 
+        /* Modificado para que Vega pueda calcular el alto y ancho correctamente */
         #vis-grafico-tecnicos {
             width: 100%;
-            display: flex;
-            justify-content: center;
+            min-height: 400px; /* Evita que colapse a 0px de altura */
+            display: block;
+            margin: 0 auto;
         }
 
         @media (max-width: 900px) {
@@ -257,7 +255,6 @@
 </head>
 <body>
 
-    <!-- Bloque 1: Texto e Imagen Charles Aránguiz -->
     <section id="sbsr-1475">
         <div class="cs-container">
             <div class="cs-image-group">
@@ -279,7 +276,6 @@
         </div>
     </section>
 
-    <!-- Bloque 2: Gráfico Pato -->
     <section id="reviews-306">
         <div class="reviews-container">
             <picture class="cs-image">
@@ -295,7 +291,6 @@
         </div>
     </section>
 
-    <!-- Bloque 3: Texto e Imagen Gustavo Quinteros -->
     <section id="stability-section">
         <div class="cs-container">
             <div class="cs-image-group">
@@ -314,7 +309,6 @@
         </div>
     </section>
 
-    <!-- Bloque 4: Gráfico de Técnicos centrado con fondo del Estadio UC -->
     <section id="tech-chart-section">
         <div class="tech-chart-container">
             <div id="vis-grafico-tecnicos"></div>
@@ -322,8 +316,16 @@
     </section>
 
     <script>
-        // Carga la visualización interactiva
-        vegaEmbed('#vis-grafico-tecnicos', 'visualizacion_martin.json').catch(console.error);
+        // Carga de la visualización interactiva de Altair
+        vegaEmbed('#vis-grafico-tecnicos', 'visualizacion_martin.json', { "actions": false })
+            .catch(function(error) {
+                console.error(error);
+                // Si hay un error de carga por abrir el archivo localmente, te avisará aquí:
+                document.getElementById('vis-grafico-tecnicos').innerHTML = 
+                    `<p style="color:#ff3333; text-align:center; padding: 20px;">
+                        Error al cargar 'visualizacion_martin.json'. Asegúrate de estar usando un servidor local (como Live Server en VS Code) o de que el archivo JSON esté en la misma carpeta.
+                     </p>`;
+            });
     </script>
 
 </body>
