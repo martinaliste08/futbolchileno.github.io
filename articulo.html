@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El gran desequilibrio económico</title>
     
-    <!-- Librerías de Vega (se mantienen por si las usas en otras partes) -->
+    <!-- Librerías de Vega necesarias para renderizar gráficos interactivos de Altair -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -195,12 +195,45 @@
             text-align: justify;
         }
 
-        /* Nueva sección de Recuadros con los datos solicitados */
+        /* Sección del gráfico con fondo de estadio (VA PRIMERO) */
+        #tech-chart-section {
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), 
+                              url('imagenes/estadio_uc.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 60px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-chart-container {
+            max-width: 950px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: rgba(13, 17, 23, 0.90); 
+            padding: 30px;
+            border: 4px solid #39ff14; 
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+            overflow-x: auto; 
+        }
+
+        #vis-grafico-tecnicos {
+            width: 100%;
+            min-height: 400px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Sección de los tres recuadros (VA DESPUÉS) */
         #cards-section {
             max-width: 1100px;
             width: 100%;
             margin: 0 auto;
-            padding: 40px 20px 80px 20px;
+            padding: 60px 20px 80px 20px;
         }
 
         .cards-intro-text {
@@ -226,7 +259,7 @@
             background-position: center;
             border: 3px solid #39ff14;
             border-radius: 12px;
-            padding: 30px 25px;
+            padding: 35px 25px;
             min-height: 280px;
             display: flex;
             flex-direction: column;
@@ -241,7 +274,7 @@
         }
 
         .card-title {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 800;
             text-transform: uppercase;
             color: #2ecc71;
@@ -353,7 +386,14 @@
         </div>
     </section>
 
-    <!-- Bloque 4: Nueva sección de recuadros con imagen de fondo uch_foto.jpg -->
+    <!-- Bloque 4: Visualización interactiva (Mantenida e impecable) -->
+    <section id="tech-chart-section">
+        <div class="tech-chart-container">
+            <div id="vis-grafico-tecnicos"></div>
+        </div>
+    </section>
+
+    <!-- Bloque 5: Nueva sección con el texto solicitado y los 3 recuadros abajo de la visualización -->
     <section id="cards-section">
         <p class="cards-intro-text">
             Aunque los clubes con planteles más valorizados suelen mantenerse en posiciones competitivas, esto no garantiza automáticamente títulos o campañas exitosas. Algunos equipos con menor valor de mercado lograron competir en puestos altos e incluso clasificar a torneos internacionales, poniendo en duda la idea de que el dinero sea el único factor determinante del rendimiento.
@@ -378,6 +418,29 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Recuerda pegar aquí todo el texto copiado de tu 'visualizacion_martin.json'
+        const miGrafico = 
+        
+        // ¡PEGA TU JSON AQUÍ ADENTRO!
+        
+        ;
+
+        // Renderizado e inyección del centrado automático para el gráfico
+        vegaEmbed('#vis-grafico-tecnicos', miGrafico, { "actions": false })
+            .then(function(result) {
+                const vegaWrapper = document.querySelector('.vega-embed');
+                if (vegaWrapper) {
+                    vegaWrapper.style.display = 'flex';
+                    vegaWrapper.style.justifyContent = 'center';
+                    vegaWrapper.style.alignItems = 'center';
+                    vegaWrapper.style.margin = '0 auto';
+                    vegaWrapper.style.width = '100%';
+                }
+            })
+            .catch(console.error);
+    </script>
 
 </body>
 </html>
